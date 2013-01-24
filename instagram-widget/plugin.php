@@ -1,19 +1,19 @@
 <?php
 /*
-Plugin Name: TODO
+Plugin Name: Instagram Widget
 Plugin URI: TODO
-Description: TODO
+Description: Display Instagram Feed in your blog.
 Version: 1.0
-Author: TODO
-Author URI: TODO
-Author Email: TODO
-Text Domain: widget-name-locale
+Author: Ashley Hitchcock
+Author URI: http://www.ashleyhitchcock.co.uk
+Author Email: hello@ashleyhitchcock.co.uk
+Text Domain: instagram-widget-locale
 Domain Path: /lang/
 Network: false
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Copyright 2012 TODO (email@domain.com)
+Copyright 2013 Ashley Hitchcock (hello@ashleyhitchcock.co.uk)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License, version 2, as 
@@ -30,7 +30,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
 // TODO: change 'Widget_Name' to the name of your plugin
-class Widget_Name extends WP_Widget {
+class Instagram_Widget extends WP_Widget {
 
 	/*--------------------------------------------------*/
 	/* Constructor
@@ -50,13 +50,13 @@ class Widget_Name extends WP_Widget {
 		register_deactivation_hook( __FILE__, array( $this, 'deactivate' ) );
 		
 		// TODO:	update classname and description
-		// TODO:	replace 'widget-name-locale' to be named more plugin specific. Other instances exist throughout the code, too.
+		// TODO:	replace 'instagram-widget-locale' to be named more plugin specific. Other instances exist throughout the code, too.
 		parent::__construct(
-			'widget-name-id',
-			__( 'Widget Name', 'widget-name-locale' ),
+			'instagram-widget-id',
+			__( 'Instagram Widget', 'instagram-widget-locale' ),
 			array(
-				'classname'		=>	'widget-name-class',
-				'description'	=>	__( 'Short description of the widget goes here.', 'widget-name-locale' )
+				'classname'		=>	'instagram-widget-class',
+				'description'	=>	__( 'Display Instagram Feed in your blog.', 'instagram-widget-locale' )
 			)
 		);
 		
@@ -138,8 +138,8 @@ class Widget_Name extends WP_Widget {
 	 */
 	public function widget_textdomain() {
 	
-		// TODO be sure to change 'widget-name' to the name of *your* plugin
-		load_plugin_textdomain( 'widget-name-locale', false, plugin_dir_path( __FILE__ ) . '/lang/' );
+		// TODO be sure to change 'instagram-widget' to the name of *your* plugin
+		load_plugin_textdomain( 'instagram-widget-locale', false, plugin_dir_path( __FILE__ ) . '/lang/' );
 		
 	} // end widget_textdomain
 	
@@ -166,8 +166,8 @@ class Widget_Name extends WP_Widget {
 	 */
 	public function register_admin_styles() {
 	
-		// TODO:	Change 'widget-name' to the name of your plugin
-		wp_enqueue_style( 'widget-name-admin-styles', plugins_url( 'widget-name/css/admin.css' ) );
+		// TODO:	Change 'instagram-widget' to the name of your plugin
+		wp_enqueue_style( 'instagram-widget-admin-styles', plugins_url( 'instagram-widget/css/admin.css' ) );
 	
 	} // end register_admin_styles
 
@@ -176,8 +176,8 @@ class Widget_Name extends WP_Widget {
 	 */	
 	public function register_admin_scripts() {
 	
-		// TODO:	Change 'widget-name' to the name of your plugin
-		wp_enqueue_script( 'widget-name-admin-script', plugins_url( 'widget-name/js/admin.js' ) );
+		// TODO:	Change 'instagram-widget' to the name of your plugin
+		wp_enqueue_script( 'instagram-widget-admin-script', plugins_url( 'instagram-widget/js/admin.js' ) );
 		
 	} // end register_admin_scripts
 	
@@ -186,8 +186,8 @@ class Widget_Name extends WP_Widget {
 	 */
 	public function register_widget_styles() {
 	
-		// TODO:	Change 'widget-name' to the name of your plugin
-		wp_enqueue_style( 'widget-name-widget-styles', plugins_url( 'widget-name/css/widget.css' ) );
+		// TODO:	Change 'instagram-widget' to the name of your plugin
+		wp_enqueue_style( 'instagram-widget-widget-styles', plugins_url( 'instagram-widget/css/widget.css' ) );
 		
 	} // end register_widget_styles
 	
@@ -196,12 +196,12 @@ class Widget_Name extends WP_Widget {
 	 */
 	public function register_widget_scripts() {
 	
-		// TODO:	Change 'widget-name' to the name of your plugin
-		wp_enqueue_script( 'widget-name-script', plugins_url( 'widget-name/js/widget.js' ) );
+		// TODO:	Change 'instagram-widget' to the name of your plugin
+		wp_enqueue_script( 'instagram-widget-script', plugins_url( 'instagram-widget/js/widget.js' ) );
 		
 	} // end register_widget_scripts
 	
 } // end class
 
 // TODO:	Remember to change 'Widget_Name' to match the class name definition
-add_action( 'widgets_init', create_function( '', 'register_widget("Widget_Name");' ) ); 
+add_action( 'widgets_init', create_function( '', 'register_widget("instagram-widget-class");' ) ); 
