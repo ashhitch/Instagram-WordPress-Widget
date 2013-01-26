@@ -6,13 +6,34 @@
 
 
 .instagram-wp-widget .instagram-wp-thumb {
+position: relative;
 width: 50%;
 float: left;
 padding: 5px;
 	
 }
 
+
+.instagram-wp-widget .instagram-wp-thumb:hover {
+	opacity:0.8;
+}
 .instagram-wp-widget .instagram-wp-thumb img {
 border-radius: 3px;
 box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+.instagram-wp-widget .instagram-wp-thumb .instagram-wp-likes {
+	min-width: 40px;
+	height: 28px;
+	padding: 12px 0 0 0;
+	background: #fc2e5a;
+	border-radius: 25px;
+	color: #fff;
+	font-size: 16px;
+	font-weight: 700;
+	position: absolute;
+	bottom: 12px;
+	right: 12px;
+	text-align: center;
 }

@@ -3,7 +3,7 @@
 Plugin Name: Instagram Widget
 Plugin URI: http://www.ashleyhitchcock.co.uk
 Description: Display Instagram Feed in your blog.
-Version: 0.1
+Version: 0.2
 Author: Ashley Hitchcock
 Author URI: http://www.ashleyhitchcock.co.uk
 Author Email: hello@ashleyhitchcock.co.uk
@@ -160,7 +160,8 @@ class Instagram_Widget extends WP_Widget {
 	 */
 	public function register_widget_styles() {
 	
-		wp_enqueue_style( 'instagram-widget-widget-styles', plugins_url( 'instagram-widget/css/widget.css' ) );
+		wp_enqueue_style( 'instagram-widget-facybox', plugins_url( 'instagram-widget/js/fancybox/jquery.fancybox.css' ) );
+		wp_enqueue_style( 'instagram-widget-styles', plugins_url( 'instagram-widget/css/widget.css' ) );
 		
 	} // end register_widget_styles
 	
@@ -168,8 +169,8 @@ class Instagram_Widget extends WP_Widget {
 	 * Registers and enqueues widget-specific scripts.
 	 */
 	public function register_widget_scripts() {
-	
-		wp_enqueue_script( 'instagram-widget-script', plugins_url( 'instagram-widget/js/widget.js' ) );
+		wp_enqueue_script( 'instagram-widget-fancybox', plugins_url( 'instagram-widget/js/fancybox/jquery.fancybox.pack.js' ), array('jquery'), '2.1.4' );
+		wp_enqueue_script( 'instagram-widget-script', plugins_url( 'instagram-widget/js/widget.js' ),array('instagram-widget-fancybox'), '1.0.0', true );
 		
 	} // end register_widget_scripts
 	

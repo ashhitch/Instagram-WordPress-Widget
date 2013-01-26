@@ -35,4 +35,6 @@ This section describes how to install the widget and get it working.
 
 = 0.1 =
 This is the first release
+= 0.2 =
+Fancy Box added
 

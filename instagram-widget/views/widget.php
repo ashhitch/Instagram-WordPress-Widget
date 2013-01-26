@@ -37,6 +37,8 @@ function get_images($instance)
 			$likes = $item->likes->count;
 
 			$src = $item->images->low_resolution->url;
+			
+			$srcLrg = $item->images->standard_resolution->url;
 
 			$filter = $item->filter;
 			
@@ -45,14 +47,12 @@ function get_images($instance)
 			$images[] = array(
 				"title" => htmlspecialchars($title),
 				"src" => htmlspecialchars($src),
+				"srcLrg" => htmlspecialchars($srcLrg),
 				"filter" => htmlspecialchars($filter),
 				"likes" => htmlspecialchars($likes),
 				"link" => htmlspecialchars($link)
 			);
 		}
-
-		array_pop($images);
-
 
 
 		file_put_contents($cache, serialize($images));
@@ -73,8 +73,9 @@ $endLimit = $endLimit -1;
 
 foreach(get_images($instance) as $i=>$image){
 ?>
-	<a href="<?php echo $image['link']?>" target="_blank" class="instagram-wp-thumb" title="<?php echo $image['title']; ?><?php if ($image['likes'] >=1){ echo ' '.$image['likes']. ' Likes'; } ?>">
+	<a href="<?php echo $image['srcLrg']?>" class="instagram-wp-thumb" data-fancybox-group="instagram-gallery" title="<?php echo $image['title']; ?><?php if ($image['filter'] !=''){ echo ' - Filter: '.$image['filter']; } ?>">
 	  <img src="<?php echo $image['src']?>" alt="<?php echo $image['title']; ?>" >
+	  <?php if ($image['likes'] >=1){ echo '<span class="instagram-wp-likes">'.$image['likes']. '</span>'; } ?>
 	</a>
 <?php
 	if(++$i > $endLimit) break;
