@@ -1,1 +1,18 @@
-/* This stylesheet is used to style the public view of the widget. */
+.instagram-wp-widget, .instagram-wp-widget .instagram-wp-thumb {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+
+.instagram-wp-widget .instagram-wp-thumb {
+width: 50%;
+float: left;
+padding: 5px;
+	
+}
+
+.instagram-wp-widget .instagram-wp-thumb img {
+border-radius: 3px;
+box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
